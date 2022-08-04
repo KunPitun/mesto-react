@@ -1,4 +1,4 @@
-function PopupWithImage(props) {
+function ImagePopup(props) {
 
   if(props.isOpen) {
     document.querySelector('.popup_type_place').classList.add('popup_opened');
@@ -15,4 +15,4 @@ function PopupWithImage(props) {
   );
 }
 
-export default PopupWithImage;
+export default ImagePopup;

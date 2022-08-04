@@ -3,7 +3,7 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
-import PopupWithImage from './PopupWithImage';
+import ImagePopup from './ImagePopup';
 
 function App() {
 
@@ -75,7 +75,7 @@ function App() {
         <button className="popup__save-btn" type="submit">Сохранить</button>
       </PopupWithForm>
       
-      <PopupWithImage onClose={closeAllPopups} isOpen={isCardPopupOpen} card={selectedCard} />
+      <ImagePopup onClose={closeAllPopups} isOpen={isCardPopupOpen} card={selectedCard} />
     </div>
   );
 }
