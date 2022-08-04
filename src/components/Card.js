@@ -1,8 +1,8 @@
 function Card(props) {
 
-function handleClick() {
-  props.onCardClick(props.card);
-}
+  function handleClick() {
+    props.onCardClick(props.card);
+  }
 
   return (
     <li className="place-card">
