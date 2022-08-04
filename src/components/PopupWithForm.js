@@ -1,7 +1,9 @@
 function PopupWithForm(props) {
+
   if(props.isOpen) {
     document.querySelector(`.popup_type_${props.name}`).classList.add('popup_opened');
   }
+  
   return (
     <section className={`popup popup_type_${props.name}`}>
         <div className="popup__container">

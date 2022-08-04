@@ -1,5 +1,6 @@
 import React from 'react';
 import api from '../utils/Api';
+import Card from './Card';
 
 function Main(props) {
 
@@ -9,20 +10,22 @@ function Main(props) {
   const [cards, setCard] = React.useState([]);
 
   React.useEffect(() => {
-    api.getUserData()
-      .then((data) => {
-        setUserName(data.name);
-        setUserDescription(data.about);
-        setUserAvatar(data.avatar);
-        console.log(1);
+    Promise.all([api.getUserData(), api.getInitialCards()])
+      .then(([userData, initialCards]) => {
+        setUserName(userData.name);
+        setUserDescription(userData.about);
+        setUserAvatar(userData.avatar);
+        setCard(initialCards);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
   /*На сколько я понял из предыдущих проектных, аватар должен задаваться тегом img, а тут в этой проектной исходя 
   из подсказки в задании, аватар задается обычным div и изменяется через background-img. Не совсем понял этот
   момент, но если это принципиально, то поправлю*/
+
   return (
     <main>
       <section className="profile">
@@ -37,7 +40,11 @@ function Main(props) {
         <button onClick={props.onAddPlace} className="profile__add-btn" type="button"></button>
       </section>
       <section className="places">
-        <ul className="places__container"></ul>
+        <ul className="places__container">
+          {cards.map((card, i) => (
+            <Card onCardClick={props.onCardClick} card={card} key={card._id}/>
+          ))}
+        </ul>
       </section>
     </main>
   );
