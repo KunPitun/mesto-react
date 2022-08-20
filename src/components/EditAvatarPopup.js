@@ -8,8 +8,11 @@ function EditAvatarPopup(props) {
   function handleSubmit(e) {
     e.preventDefault();
     props.onUpdateAvatar(avatarRef.current);
-    e.target.reset();
   }
+
+  React.useEffect(() => {
+    avatarRef.current.value = '';
+  }, [props.isOpen]);
 
   return (
     <PopupWithForm isBtnActive={props.isBtnActive} onSubmit={handleSubmit} buttonText="Сохранить" onClose={props.onClose} isOpen={props.isOpen} name="avatar" title="Обновить аватар">

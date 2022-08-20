@@ -45,7 +45,7 @@ function App() {
   }, []);
 
   function handleCardDelete() {
-    setIsSubmitBtnActive(true);
+    setIsSubmitBtnActive(false);
     api.deleteCard(selectedCard._id)
       .then(() => {
         setCards((state) => state.filter((c) => c._id !== selectedCard._id));
