@@ -1,4 +1,5 @@
 function ImagePopup(props) {
+  
   return (
     <section className={`popup popup_type_place ${(props.isOpen && props.card.link) ? 'popup_opened' : ''}`}>
       <div className="popup__container popup__container_type_place">

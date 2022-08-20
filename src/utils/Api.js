@@ -61,26 +61,27 @@ class Api {
       .then(this._checkResponse)
   }
 
-  addLike(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'PUT',
-      headers: {
-        authorization: this._autorization,
-        'Content-Type': this._contentType
-      }
-    })
-      .then(this._checkResponse)
-  }
-
-  deleteLike(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'DELETE',
-      headers: {
-        authorization: this._autorization,
-        'Content-Type': this._contentType
-      }
-    })
-      .then(this._checkResponse)
+  changeLikeStatus(cardId, isLiked) {
+    if(isLiked) {
+      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+        method: 'PUT',
+        headers: {
+          authorization: this._autorization,
+          'Content-Type': this._contentType
+        }
+      })
+        .then(this._checkResponse)
+    }
+    else {
+      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+        method: 'DELETE',
+        headers: {
+          authorization: this._autorization,
+          'Content-Type': this._contentType
+        }
+      })
+        .then(this._checkResponse)
+    }
   }
 
   deleteCard(cardId) {
@@ -118,6 +119,3 @@ const api = new Api({
 });
 
 export default api;
-
-/*На счёт файла utils я немного в замешательстве. тк не могу вспомнить,
-что бы он упоминался в предыдущих проектных работах*/ 
