@@ -1,7 +1,7 @@
 .popup__close-btn {
+  left: calc((100vw / 2) + 120px);
   position: fixed;
-  top: calc((100vh / 2) - 162px - 36px);
-  right: calc((100vw / 2) - 141px);
+  top: calc((100vh / 2) - 198px);
   padding: 0;
   border: none;
   background: transparent;
@@ -22,7 +22,7 @@
   .popup__close-btn {
     width: 32px;
     height: 32px;
-    top: calc((100vh / 2) - 169px - 40px);
-    right: calc((100vw / 2) - 215px - 40px);
+    top: calc((100vh / 2) - 209px);
+    left: calc((100vw / 2) + 223px);
   }
 }

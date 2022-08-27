@@ -55,7 +55,7 @@ class Api {
       },
       body: JSON.stringify({
         name: place,
-        link: link,
+        link: link
       })
     })
       .then(this._checkResponse)
